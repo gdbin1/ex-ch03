@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -199,7 +200,7 @@ public class ExService {
 				.filter(value -> value % 2 ==0).collect(Collectors.toList());
 		
 		evenList.stream().forEach(value -> System.out.println(value));
-		return null;
+		return String.valueOf(evenList);
 	}
 
 	public String ex335() {
@@ -207,8 +208,102 @@ public class ExService {
 		Integer[] integerArray = new Integer[] {1,2,3,4,5};
 		List<Integer> list = Arrays.asList(integerArray);
 		list.stream().forEach(value -> System.out.println(value));
+		return String.valueOf(list);
+	}
+
+	public String ex336() {
+		
+		Integer[] integerArray = new Integer[] {1,2,3,4,5,6,7,8,9,10};
+		List<Integer> list = Arrays.asList(integerArray);
+		List evenList = list.stream()
+				.filter(value -> value % 2 ==0).collect(Collectors.toList());
+		return String.valueOf(evenList);
+	}
+
+	public String ex337() {
+		
+		Integer[] integerArray = new Integer[] {1,1,1,1,2,2,2,3,3,4};
+		List<Integer> list = Arrays.asList(integerArray);
+		List<Integer> distinctList = list.stream().distinct().toList();
+		return String.valueOf(distinctList);
+	}
+
+	public String ex338() {
+		
+		String[] lowercaseArray = new String[] {"public", "static", "void"};
+		List<String> lowercaseList = Arrays.asList(lowercaseArray);
+		List<String> uppercaseList = lowercaseList.stream()
+				.map(value -> value.toUpperCase()).toList();
+		return String.valueOf(uppercaseList);
+	}
+
+//	private static String getSomeString() {
+//		return null;
+//	}
+//	public String ex339() {
+//		String isThisNull = getSomeString();
+//		
+//		if(null != isThisNull)
+//		return isThisNull;
+//		return isThisNull;
+//	}
+	private static String getSomeString() {
 		return null;
 	}
+	
+	public String ex3310() {
+		String isThisNull = getSomeString();
+		
+		System.out.println(isThisNull.toUpperCase());
+		return null;
+	}
+
+	private static Optional<String>getSomeString1(){
+		return Optional.empty();
+	}
+	
+	public String ex3311() {
+		Optional<String> isThisNull = getSomeString1();
+		
+		isThisNull.ifPresent(str -> System.out.println(str.toUpperCase()));
+		return String.valueOf(isThisNull);
+	}
+
+	private static Optional<String> getSomeString2(){
+		return Optional.ofNullable("public static void");
+	}
+	
+	public String ex3312() {
+		Optional<String> isThisNull = getSomeString2();
+		
+		isThisNull.ifPresent(str -> System.out.println(str.toUpperCase()));
+		return String.valueOf(isThisNull);
+	}
+
+	private static Optional<String> getSomeString3(){
+		return Optional.ofNullable("public static voiddsad");
+	}
+	
+	public String ex3313() {
+		Optional<String> str = getSomeString3();
+		
+		if(str.isPresent()) {
+			System.out.println(str.get().toUpperCase());
+		}
+		return String.valueOf(str);
+	}
+
+	private static Optional<String> getSomeString4(){
+		return Optional.ofNullable("public static voidddddd");
+	}
+	
+	public String ex3314() {
+		Optional<String> str = getSomeString4();
+		str.ifPresent((string) -> System.out.println(string.toUpperCase()));
+		
+		return String.valueOf(str);
+	}
+
 
 
 
