@@ -1,11 +1,12 @@
 package com.example.demo;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.example.demo", "com.gbk.calculator2"})
+@ComponentScan(basePackages = {"com.example.demo", "com.gbk.calculator2","com.gbk.mybatis"})
+@MapperScan(basePackages = "com.gbk.mybatis.mapper")
 public class ExCh03Application {
 
 	public static void main(String[] args) {
