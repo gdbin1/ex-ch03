@@ -23,7 +23,7 @@
  <update id="update" parameterType="Student">
 		UPDATE student
 		SET NAME = #{name}, email = #{email}, age = #{age}
-		WHERE id = 1;
+		WHERE id = #{id};
  </update>
  
  <delete id="delete" parameterType="Student">
